@@ -61,7 +61,7 @@ if (isset($_POST['upload'])) {
     $mflib           = new mflib($appId, $apiKey);
     $upload          = new upload($mflib);
     $upload->signature = $mflib->userGetSignature();
-    $upload->dupe    = $_POST['dupe'];
+    $upload->dupe    = isset($_POST['dupe']) ? $_POST['dupe'] : null;
     $mflib->email    = $email;
     $mflib->password = $password;
     //echo $mflib->dupe;
